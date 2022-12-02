@@ -19,6 +19,7 @@ class PostsService {
         const user = await dbContext.Account.findById(originalPost.userId)
 
         if (user.id.toString() !== userId) throw new Forbidden('not allowed to edit this post')
+
         originalPost.imgUrl = body.imgUrl ? body.imgUrl : originalPost.imgUrl
         originalPost.description = body.description ? body.description : originalPost.description
         originalPost.likeCount = originalPost.likeCount
