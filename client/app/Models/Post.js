@@ -5,19 +5,43 @@ export class Post {
     this.imgUrl = data.imgUrl
     this.description = data.description
     this.likeCount = data.likeCount
-    this.userId = data.userId
+    this.id = data.userId
   }
 
 
   get CandyTemplate() {
     return `
         <div class="col-3 p-2 card m-2 mt-3">
-        <img src="${this.imgUrl}" alt="" class="post-img" p-3">
+        <img src="${this.imgUrl}" data-bs-toggle="modal" data-bs-target="#postModal" onclick="app.postController.setActivePost('${this.id}')" alt="" class="post-img" p-3">
         <div class="d-flex justify-content-evenly mt-3">
           <h5>candy name</h5>
           <i class="mdi mdi-heart"></i> <i class="mdi mdi-comment"></i>
         </div>
       </div>`
+  }
+
+
+  get ActiveTemplate() {
+    return `
+    <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">${this.description}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body container-fluid">
+          <div class="row">
+            <div class="col-6">
+              <img class="posts-modal-img" src="${this.imgUrl}" alt="">
+            </div>
+            <div class="col-6">
+            <h1>${this.description}</h1>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn bird-btn" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn bird-btn-green">Done Creepin'</button>
+        </div>
+    `
   }
 
   static CandyForm() {

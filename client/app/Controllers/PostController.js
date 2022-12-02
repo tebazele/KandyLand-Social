@@ -12,11 +12,15 @@ function _drawPosts() {
     setHTML('posts', template)
 }
 
+function _drawActive() {
+    setHTML('postModalContent', appState.activePost.ActiveTemplate)
+}
 
 export class PostController {
     constructor() {
         this.getCandy()
         appState.on('posts', _drawPosts)
+        appState.on('activePost', _drawActive)
     }
 
 
@@ -42,6 +46,14 @@ export class PostController {
 
     getCandyForm() {
         setHTML('postModalContent', Post.CandyForm())
+    }
+
+    setActivePost(postId) {
+        try {
+            postService.setActivePost(postId)
+        } catch (error) {
+            Pop.error(error.message)
+        }
     }
 
 }

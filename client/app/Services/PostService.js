@@ -20,6 +20,12 @@ class PostService {
         appState.emit('posts')
     }
 
+    setActivePost(postId) {
+        const post = appState.posts.find(p => p.id == postId)
+        appState.activePost = post
+        console.log(post)
+    }
+
 }
 
 export const postService = new PostService()
