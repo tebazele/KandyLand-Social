@@ -5,7 +5,9 @@ export class Post {
     this.imgUrl = data.imgUrl
     this.description = data.description
     this.likeCount = data.likeCount
-    this.id = data.userId
+    this.id = data.id
+    this.posterId = data.user.id
+    this.user = data.user
   }
 
 
@@ -16,6 +18,7 @@ export class Post {
         <div class="d-flex justify-content-evenly mt-3">
           <h5>candy name</h5>
           <i class="mdi mdi-heart"></i> <i class="mdi mdi-comment"></i>
+          <img class="" src="${this.user.picture}" title="${this.user.name}" alt="">
         </div>
       </div>`
   }
@@ -24,7 +27,6 @@ export class Post {
   get ActiveTemplate() {
     return `
     <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">${this.description}</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body container-fluid">
@@ -39,7 +41,8 @@ export class Post {
         </div>
         <div class="modal-footer">
           <button type="button" class="btn bird-btn" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn bird-btn-green">Done Creepin'</button>
+          <button type="button" class="btn bird-btn-green">Like</button>
+          <button type="button" class="btn bird-btn-green">Comment</button>
         </div>
     `
   }
