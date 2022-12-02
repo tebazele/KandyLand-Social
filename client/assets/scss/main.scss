@@ -15,5 +15,11 @@ main {
   flex-grow: 1;
 }
 
-
-
+.post-img {
+  width: 100%;
+  // NOTE to make your own 'img-fluid' class.... you need 100% width and whatever desired height
+  height: 35vh;
+  // object-fit: cover;
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
+}

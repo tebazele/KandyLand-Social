@@ -4,4 +4,3 @@ export const useSockets = false
 export const domain = 'jeanne-allen.us.auth0.com'
 export const audience = 'https://jeannecoursework.com'
 export const clientId = 'sqlbSe3a1IkpDUog43u7KloBLXDFMzBT'
-

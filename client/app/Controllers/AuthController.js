@@ -13,7 +13,7 @@ function drawUser() {
     ${button}
   `
   // @ts-ignore
-  document.getElementById('authstate').innerHTML = template
+  // document.getElementById('authstate').innerHTML = template
 }
 
 function _drawAuthSettings() {
