@@ -2,7 +2,7 @@ import { dbContext } from "../db/DbContext.js";
 
 class PostsService {
     async getAll(query) {
-        const posts = await dbContext.Posts.find(query)
+        const posts = await dbContext.Posts.find(query).populate('user')
         return posts
     }
     async create(postData) {

@@ -22,7 +22,7 @@ export class PostsController extends BaseController {
     }
     async create(req, res, next) {
         try {
-            // req.body.userId = req.us
+            req.body.userId = req.userInfo.id
             const newPost = await postsService.create(req.body)
             return res.send(newPost)
         } catch (error) {
