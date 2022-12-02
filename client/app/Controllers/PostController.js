@@ -33,7 +33,8 @@ export class PostController {
             window.event.preventDefault()
             let form = window.event.target
             let formData = getFormData(form)
-            await candyService.postCandy(formData)
+            console.log(formData)
+            await postService.postCandy(formData)
         } catch (error) {
             Pop.error(error.messsage)
         }
