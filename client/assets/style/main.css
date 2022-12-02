@@ -13749,4 +13749,9 @@ main {
   border-top-right-radius: 22px;
 }
 
+.plus-btn {
+  border: 2px solid black;
+  box-shadow: 2px 2px black;
+}
+
 /*# sourceMappingURL=main.css.map */

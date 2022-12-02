@@ -1,6 +1,8 @@
 
 import { appState } from "../AppState.js"
+import { Post } from "../Models/Post.js"
 import { postService } from "../Services/PostService.js"
+import { getFormData } from "../Utils/FormHandler.js"
 import { Pop } from "../Utils/Pop.js"
 import { setHTML } from "../Utils/Writer.js"
 
@@ -24,6 +26,21 @@ export class PostController {
         } catch (error) {
             Pop.error(error.messsage)
         }
+    }
+
+    async postCandy() {
+        try {
+            window.event.preventDefault()
+            let form = window.event.target
+            let formData = getFormData(form)
+            await candyService.postCandy(formData)
+        } catch (error) {
+            Pop.error(error.messsage)
+        }
+    }
+
+    getCandyForm() {
+        setHTML('postModalContent', Post.CandyForm())
     }
 
 }

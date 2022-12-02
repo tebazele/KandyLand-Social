@@ -13,6 +13,11 @@ class PostService {
         console.log(appState.posts, 'got it');
     }
 
+    async postCandy(formData) {
+        const res = await server.post('api/posts', formData)
+        appState.posts.push(new Post(res.data))
+        appState.emit('posts')
+    }
 
 }
 

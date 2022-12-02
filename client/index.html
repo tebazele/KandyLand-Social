@@ -19,6 +19,11 @@
   <header class="text-center p-3">
     <h1>KandyLand</h1>
   </header>
+  <section class="row sticky-top">
+    <div class="col-12 d-flex justify-content-end p-4"> <button class="fs-1 btn bird-btn-green" data-bs-toggle="modal"
+        data-bs-target="#postModal" onclick="app.postController.getCandyForm()"><i
+          class=" mdi mdi-plus-outline plus-btn"></i></button> </div>
+  </section>
   <main class="container-fluid">
     <!-- SECTION CANDY HERE -->
     <section class="row justify-content-evenly" id="posts">
@@ -35,22 +40,24 @@
 
 
   </main>
+  <div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content" id="postModalContent">
+        </footer>
 
-  </footer>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.auth0.com/js/auth0-spa-js/1.22/auth0-spa-js.production.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/jakeoverall/auth0provider-client/browser/Auth0Provider.js"></script>
+        <script src="https://cdn.socket.io/4.1.1/socket.io.min.js"
+          integrity="sha384-cdrFIqe3RasCMNE0jeFG9xJHog/tgOVC1E9Lzve8LQN1g5WUHo0Kvk1mawWjxX7a"
+          crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+          crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
+          integrity="sha256-hw7v8jZF/rFEdx1ZHepT4D73AFTHLu/P9kEyrNesRyc=" crossorigin="anonymous"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="https://cdn.auth0.com/js/auth0-spa-js/1.22/auth0-spa-js.production.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/jakeoverall/auth0provider-client/browser/Auth0Provider.js"></script>
-  <script src="https://cdn.socket.io/4.1.1/socket.io.min.js"
-    integrity="sha384-cdrFIqe3RasCMNE0jeFG9xJHog/tgOVC1E9Lzve8LQN1g5WUHo0Kvk1mawWjxX7a"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
-    integrity="sha256-hw7v8jZF/rFEdx1ZHepT4D73AFTHLu/P9kEyrNesRyc=" crossorigin="anonymous"></script>
-
-  <script src="app/App.js" type="module"></script>
+        <script src="app/App.js" type="module"></script>
 </body>
 
 </html>
