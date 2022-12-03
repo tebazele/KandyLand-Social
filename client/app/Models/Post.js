@@ -1,3 +1,4 @@
+import { appState } from "../AppState.js"
 
 
 export class Post {
@@ -12,15 +13,30 @@ export class Post {
 
 
   get CandyTemplate() {
-    return `
-        <div class="col-3 p-2 card m-2 mt-3">
-        <img src="${this.imgUrl}" data-bs-toggle="modal" data-bs-target="#postModal" onclick="app.postController.setActivePost('${this.id}')" alt="" class="post-img" p-3">
-        <div class="d-flex justify-content-evenly mt-3">
-          <h5>candy name</h5>
-          <i class="mdi mdi-heart"></i> <i class="mdi mdi-comment"></i>
-          <img class="" src="${this.user.picture}" title="${this.user.name}" alt="">
-        </div>
+    if (appState.account.id == this.posterId) {
+
+      return `
+      <div class="col-3 p-2 card m-2 mt-3">
+      <img src="${this.imgUrl}" data-bs-toggle="modal" data-bs-target="#postModal" onclick="app.postController.setActivePost('${this.id}')" alt="" class="post-img" p-3">
+      <div class="d-flex justify-content-evenly mt-3">
+      <p>${this.description}</p>
+      <i class="mdi mdi-heart"></i> <i class="mdi mdi-comment"></i>
+      <img class="user-picture" src="${this.user.picture}" title="${this.user.name}" alt="">
+      <button class="mdi mdi-delete"></button>
+      </div>
       </div>`
+    }
+    else {
+      return `
+      <div class="col-3 p-2 card m-2 mt-3">
+      <img src="${this.imgUrl}" data-bs-toggle="modal" data-bs-target="#postModal" onclick="app.postController.setActivePost('${this.id}')" alt="" class="post-img" p-3">
+      <div class="d-flex justify-content-evenly mt-3">
+      <p>${this.description}</p>
+      <i class="mdi mdi-heart"></i> <i class="mdi mdi-comment"></i>
+      <img class="user-picture" src="${this.user.picture}" title="${this.user.name}" alt="">
+      </div>
+      </div>`
+    }
   }
 
 
