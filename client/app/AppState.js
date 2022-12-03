@@ -18,6 +18,9 @@ class AppState extends EventEmitter {
 
   activePost = null
 
+  /** @type {import('./Models/Like').Like[]} */
+
+  likes = []
 
 }
 
