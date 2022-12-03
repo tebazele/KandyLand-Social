@@ -7,13 +7,13 @@ export class Post {
     this.description = data.description
     this.likeCount = data.likeCount
     this.id = data.id
-    this.posterId = data.user.id
+    this.userId = data.userId
     this.user = data.user
   }
 
 
   get CandyTemplate() {
-    if (appState.account.id == this.posterId) {
+    if (appState.account.id == this.userId) {
 
       return `
       <div class="col-3 p-2 card m-2 mt-3">

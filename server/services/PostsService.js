@@ -8,7 +8,7 @@ class PostsService {
     }
     async create(postData) {
         const newPost = await dbContext.Posts.create(postData)
-        newPost.populate('user')
+        await newPost.populate('user')
         return newPost
     }
 

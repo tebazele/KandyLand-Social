@@ -14,8 +14,9 @@ class PostService {
     }
 
     async postCandy(formData) {
+        console.log(formData)
         const res = await server.post('api/posts', formData)
-        console.log(res.data)
+        console.log(res.data + 'this is the res data')
         appState.posts.push(new Post(res.data))
         appState.emit('posts')
     }

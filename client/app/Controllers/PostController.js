@@ -28,7 +28,7 @@ export class PostController {
         try {
             await postService.getCandy()
         } catch (error) {
-            Pop.error(error.messsage)
+            Pop.error(error)
         }
     }
 
@@ -38,9 +38,12 @@ export class PostController {
             let form = window.event.target
             let formData = getFormData(form)
             console.log(formData)
+            // console.log(appState.account)
             await postService.postCandy(formData)
+            // @ts-ignore
+            form.reset()
         } catch (error) {
-            Pop.error(error.messsage)
+            Pop.error(error + `postCandy controller error`)
         }
     }
 
