@@ -3,7 +3,7 @@ import { BadRequest, Forbidden } from "../utils/Errors.js";
 
 class PostsService {
     async getAll(query) {
-        const posts = await dbContext.Posts.find(query).populate('user', 'name picture')
+        const posts = await dbContext.Posts.find(query).populate('user', 'name picture').populate({ path: 'likes', populate: { path: 'account' } })
         return posts
     }
     async create(postData) {

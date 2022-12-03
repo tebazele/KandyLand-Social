@@ -1,4 +1,5 @@
 import { Auth0Provider } from "@bcwdev/auth0provider";
+import { likesService } from "../services/LikesService.js";
 import { postsService } from "../services/PostsService.js";
 import BaseController from "../utils/BaseController.js";
 
@@ -7,10 +8,12 @@ export class PostsController extends BaseController {
         super('api/posts')
         this.router
             .get('', this.getAll)
+            .get('/:postId/likes', this.getLikesbyPostId)
             .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.create)
             .put('/:id', this.editPost)
             .delete('/:id', this.remove)
+            .delete('/:postId/likes')
     }
 
     async getAll(req, res, next) {
@@ -22,6 +25,18 @@ export class PostsController extends BaseController {
             next(error)
         }
     }
+
+    async getLikesbyPostId(req, res, next) {
+        try {
+            const likes = await likesService.getLikesByPostId(req.params.postId)
+            return res.send(likes)
+        } catch (error) {
+            next(error)
+        }
+
+    }
+
+
     async create(req, res, next) {
         try {
             req.body.userId = req.userInfo.id
@@ -47,6 +62,15 @@ export class PostsController extends BaseController {
             res.send(message)
         } catch (error) {
             next(error)
+        }
+    }
+
+    async unLikePost(req, res, next) {
+        try {
+            const like = await likesService.unlikePost(req.params.postId, req.body)
+            return res.send(like)
+        } catch (error) {
+
         }
     }
 

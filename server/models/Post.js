@@ -5,7 +5,7 @@ export const PostSchema = new Schema({
     imgUrl: { type: String, required: true, maxLength: 400 },
     description: { type: String, required: true, minLength: 4, maxLength: 144 },
     likeCount: { type: Number, default: 0 },
-    userId: { type: ObjectId, required: true, ref: 'Account' }
+    userId: { type: ObjectId, required: true, ref: 'Account' },
 },
     { timestamps: true, toJSON: { virtuals: true } }
 )
@@ -15,4 +15,10 @@ PostSchema.virtual('user', {
     foreignField: '_id',
     justOne: true,
     ref: 'Account'
+})
+
+PostSchema.virtual('likes', {
+    localField: '_id',
+    foreignField: 'postId',
+    ref: 'Like'
 })
