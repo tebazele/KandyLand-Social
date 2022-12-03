@@ -13762,4 +13762,9 @@ main {
   border-radius: 10px;
 }
 
+.user-picture {
+  height: 6vh;
+  width: 6vh;
+}
+
 /*# sourceMappingURL=main.css.map */
