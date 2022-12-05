@@ -8,12 +8,12 @@ export class PostsController extends BaseController {
         super('api/posts')
         this.router
             .get('', this.getAll)
-            .get('/:postId/likes', this.getLikesbyPostId)
+            .get('/:postId/likes', this.getLikesByPostId)
             .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.create)
             .put('/:id', this.editPost)
             .delete('/:id', this.remove)
-            .delete('/:postId/likes')
+        // .delete('/:postId/likes')
     }
 
     async getAll(req, res, next) {
@@ -26,9 +26,9 @@ export class PostsController extends BaseController {
         }
     }
 
-    async getLikesbyPostId(req, res, next) {
+    async getLikesByPostId(req, res, next) {
         try {
-            const likes = await likesService.getLikesByPostId(req.params.postId)
+            const likes = await postsService.getAll(req.params.postId)
             return res.send(likes)
         } catch (error) {
             next(error)
@@ -65,13 +65,13 @@ export class PostsController extends BaseController {
         }
     }
 
-    async unLikePost(req, res, next) {
-        try {
-            const like = await likesService.unlikePost(req.params.postId, req.body)
-            return res.send(like)
-        } catch (error) {
+    // async unLikePost(req, res, next) {
+    //     try {
+    //         const like = await likesService.unlikePost(req.params.postId, req.body)
+    //         return res.send(like)
+    //     } catch (error) {
 
-        }
-    }
+    //     }
+    // }
 
 }

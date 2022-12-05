@@ -19,6 +19,7 @@ function _drawActive() {
 export class PostController {
     constructor() {
         this.getCandy()
+        appState.on('account', _drawPosts)
         appState.on('posts', _drawPosts)
         appState.on('activePost', _drawActive)
     }

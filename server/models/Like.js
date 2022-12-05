@@ -2,7 +2,8 @@ import { Schema } from "mongoose";
 
 export const LikeSchema = new Schema({
     postId: { type: Schema.Types.ObjectId, required: true, ref: 'Post' },
-    accountId: { type: Schema.Types.ObjectId, required: true, ref: 'Account' }
+    accountId: { type: Schema.Types.ObjectId, required: true, ref: 'Account' },
+    likedByCurrUser: { type: Boolean, default: false, required: true }
 },
     { timestamps: true, toJSON: { virtuals: true } }
 )

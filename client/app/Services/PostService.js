@@ -10,7 +10,7 @@ class PostService {
     async getCandy() {
         const res = await server.get('api/posts')
         appState.posts = res.data.map(p => new Post(p))
-        console.log(appState.posts, 'got it');
+        // console.log(appState.posts, 'got it');
     }
 
     async postCandy(formData) {
@@ -19,6 +19,7 @@ class PostService {
         console.log(res.data + 'this is the res data')
         appState.posts.push(new Post(res.data))
         appState.emit('posts')
+
     }
 
     setActivePost(postId) {
