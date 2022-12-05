@@ -26,8 +26,8 @@ export class LikesController {
         }
     }
 
-    // unLike() {
-    //     console.log('unlike that post!');
-    // }
+    unLike() {
+        console.log('unlike that post!');
+    }
 
 }
